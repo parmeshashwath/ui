@@ -1,0 +1,46 @@
+body {
+	font-family: 'Lucida Grande', 'Helvetica Neue', sans-serif;
+	font-size: 13px;
+	background-color:#F0F0F0;
+}
+
+div.heading {
+	border: 2px solid #a1a1a1;
+	padding: 20px;
+	background: #7abcff;
+	width: 520px;
+	border-radius: 25px;
+	font-weight: bold;
+	color: #FFF;
+	text-align: center;
+	padding-top: 8px;
+	position:relative;
+	top: 8px;
+	left:500px;
+}
+
+
+
+.footer {
+	position:fixed;
+	bottom: 0px;
+	right: 0px;
+}
+div.sidepanel{
+
+position:fixed;
+top:0px;
+left:0px;
+height:800px;
+width:300px;
+background: #7abcff
+}
+#image2{
+position:relative;
+top:120px;
+}
+.frm{
+position:fixed;	
+top:400px;
+left:540px;
+}
