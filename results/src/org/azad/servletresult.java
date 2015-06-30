@@ -2,6 +2,7 @@ package org.azad;
 
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -43,13 +44,16 @@ public class servletresult extends HttpServlet {
 		              //FileSystem fs = FileSystem.get(new Configuration());
 					//Process obj2=Runtime.getRuntime().exec("/usr/local/hadoop/bin/start-all.sh");
 					//obj2.waitFor();
-		              Process obj=Runtime.getRuntime().exec("/usr/local/hadoop/bin/hadoop dfs -rmr hdfs://localhost:54310/usr/local/hadoop/outputlog_temp2");
+		              Process obj=Runtime.getRuntime().exec("/usr/local/hadoop/bin/hadoop dfs -rmr hdfs://localhost:54310/usr/local/hadoop/output_jat_fin");
 			obj.waitFor();
-			String tempp="/home/pah/Desktop/" + temp_path;
+			File f = new File(temp_path);
+  		  String name_file=(f.getName());
+			//String tempp="/home/pah/Desktop/" + temp_path;
 
-					Process obj1=Runtime.getRuntime().exec("/usr/local/hadoop/bin/hadoop jar /home/pah/Desktop/path_test.jar " + temp_path);
+					Process obj1=Runtime.getRuntime().exec("/usr/local/hadoop/bin/hadoop jar /home/pah/Desktop/rr.jar " + "/usr/local/hadoop/inputlog_temp/" + name_file + " /usr/local/hadoop/output_jat_fin");
 					obj1.waitFor();
-					Process obj3=Runtime.getRuntime().exec("/usr/local/hadoop/bin/hadoop dfs  -copyToLocal hdfs://localhost:54310/usr/local/hadoop/outputlog_temp2 /home/pah/Desktop");
+					writer.println("/usr/local/hadoop/bin/hadoop jar /home/pah/Desktop/rr.jar " + "/usr/local/hadoop/inputlog_temp/" + name_file + " /usr/local/hadoop/output_jat_fin");
+					Process obj3=Runtime.getRuntime().exec("/usr/local/hadoop/bin/hadoop dfs  -copyToLocal hdfs://localhost:54310/usr/local/hadoop/output_jat_fin/part-00000 /home/pah/Desktop");
 					obj3.waitFor();
 					
 br=new BufferedReader(new FileReader("/home/pah/Desktop/outputlog_temp2/o1"));
@@ -63,22 +67,22 @@ writer.println("<div class='CSSTableGenerator' >"+
 "<table > "+
  "<tr>" +
      "<td>" +
-      "   Error" +
+      "Time Stamp" +
      "</td>" +
      "<td >" +
-      "   Time Stamp" +
+      "Error" +
      "</td>" +
      "<td>" +
-      "   Severity" +
+      "General Desc" +
      "</td>" +
 		  "<td>" +
-      "  Occurence" +
+      "Sever" +
      "</td>" +
 		  "<td>" +
-		   "   Cause of Occurence" +
+		   "Occurence" +
        "</td>" +
 		 "<td>" +
-      "   General Desc" +
+      "  Cause of Occurance" +
      "</td>" +
  "</tr>");
 
